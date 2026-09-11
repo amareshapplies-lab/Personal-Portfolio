@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Dark mode (default) */
+  html.dark body,
+  body {
+    @apply antialiased overflow-hidden select-none font-sans;
+    background: #06070a;
+    color: #f1f5f9;
+  }
+
+  /* Light mode */
+  html.light body {
+    @apply antialiased overflow-hidden select-none font-sans;
+    background: #f4f6fc;
+    color: #0f172a;
+  }
+}
+
+/* ── Glass panels – Dark ─────────────────────────────────────────── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 17, 23, 0.75);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.glass-dock {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ── Glass panels – Light mode overrides ────────────────────────── */
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html.light .glass-panel-dark {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  /* Make all text inside dark windows readable in light mode */
+  color: #0f172a;
+}
+
+html.light .glass-dock {
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ── Light mode: force readable text on all white/transparent labels ── */
+html.light .text-white {
+  color: #0f172a !important;
+}
+html.light .text-white\/90 {
+  color: rgba(15, 24, 42, 0.90) !important;
+}
+html.light .text-white\/80 {
+  color: rgba(15, 24, 42, 0.80) !important;
+}
+html.light .text-white\/70 {
+  color: rgba(15, 24, 42, 0.70) !important;
+}
+html.light .text-white\/60 {
+  color: rgba(15, 24, 42, 0.60) !important;
+}
+html.light .text-white\/50 {
+  color: rgba(15, 24, 42, 0.50) !important;
+}
+html.light .text-white\/40 {
+  color: rgba(15, 24, 42, 0.40) !important;
+}
+html.light .text-white\/30 {
+  color: rgba(15, 24, 42, 0.30) !important;
+}
+
+/* ── Light mode: statusbar & header backgrounds ──────────────────── */
+html.light header {
+  background: rgba(255, 255, 255, 0.70) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── Light mode: bg-black/* & bg-white/* overrides ──────────────── */
+html.light .bg-black\/60,
+html.light .bg-black\/40,
+html.light .bg-black\/30 {
+  background: rgba(255, 255, 255, 0.60) !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ── Glow & Neon text ────────────────────────────────────────────── */
+.glow-text-blue {
+  text-shadow: 0 0 15px rgba(10, 132, 255, 0.6);
+}
+.glow-text-purple {
+  text-shadow: 0 0 15px rgba(191, 90, 242, 0.6);
+}
+.glow-border {
+  box-shadow: 0 0 15px rgba(10, 132, 255, 0.25);
+}
+
+/* ── Shimmer animation ───────────────────────────────────────────── */
+.shimmer-bg {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
